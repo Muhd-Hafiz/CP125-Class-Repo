@@ -14,9 +14,10 @@ def simulate_leveling(total_xp):
     xp_remaining = total_xp
     xp_required = calculate_xp_required(current_level)
     while can_level_up(xp_remaining, xp_required):
-        xp_remaining -= xp_required
-        current_level += 1
         xp_required = calculate_xp_required(current_level)
+        xp_remaining -= calculate_xp_required(current_level)
+        current_level += 1 
+        
     return current_level, xp_remaining
    
 # Test your code here
