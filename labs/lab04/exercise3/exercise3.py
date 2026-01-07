@@ -31,7 +31,7 @@ def calculate_restock_cost(quantities, prices, threshold, restock_qty):
     total_cost = 0
     for i in range(len(low_indices)):
         index = low_indices[i]
-        total_cost = prices[index] * restock_qty
+        total_cost = prices[i] * restock_qty
     return total_cost
 
 
