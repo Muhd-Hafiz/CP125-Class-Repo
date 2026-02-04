@@ -16,9 +16,20 @@ def find_missing_courses(completed_courses, required_courses):
 
 def build_student_report(students, enrollments, required_courses):
     """Return sorted list of tuples (student_id, missing_count) for students with missing courses."""
-    student_report = []
-    pass
+    incomplete = []
+    for student_id in students:
+        completed_courses = get_student_courses(enrollments, student_id)
+        missing_courses = find_missing_courses(completed_courses, required_courses)
+        if len(missing_courses) > 0:
+            incomplete.append((student_id, len(missing_courses)))
+
+    return sorted(incomplete, key=lambda x: (-x[1], x[0]))
+
 
 def find_incomplete_students(enrollments, required_courses):
     """Find students who haven't completed all required courses."""
-    pass
+    students = set()
+    for student_id, i in enrollments:
+        students.add(student_id)
+        
+    return build_student_report(students, enrollments, required_courses)
