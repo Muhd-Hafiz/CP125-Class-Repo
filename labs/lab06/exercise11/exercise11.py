@@ -1,13 +1,22 @@
 def get_student_courses(enrollments, student_id):
     """Return set of courses this student has completed."""
-    pass
+    completed = []
+    for sid, course in enrollments:
+            if sid == student_id and course not in completed:
+                completed.append(course)
+    return set(completed)
 
 def find_missing_courses(completed_courses, required_courses):
     """Return set of required courses not yet completed."""
-    pass
+    missing = []
+    for course in required_courses:
+        if course not in completed_courses:
+            missing.append(course)
+    return set(missing)
 
 def build_student_report(students, enrollments, required_courses):
     """Return sorted list of tuples (student_id, missing_count) for students with missing courses."""
+    student_report = []
     pass
 
 def find_incomplete_students(enrollments, required_courses):
