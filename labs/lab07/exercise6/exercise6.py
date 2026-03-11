@@ -12,7 +12,7 @@ def get_passing_students(scores, pass_mark):
     passing = []
     for student in scores:
         if scores[student] >= pass_mark:
-            passing.a)oppend(student)
+            passing.append(student)
     return sorted(passing)
 
 

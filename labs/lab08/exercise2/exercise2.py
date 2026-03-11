@@ -1,5 +1,5 @@
-# Lab 08 Exercise 2: Text File Merger
-# Write your code below:
+from tkinter.font import names
+
 
 def merge_lists(file1, file2, output_file):
     """
@@ -14,9 +14,26 @@ def merge_lists(file1, file2, output_file):
         int: count of unique names
     """
     # TODO: Implement this function
-    pass
+    file1 = open("labs/lab08/exercise2/data/list1.txt", "r")
+    file2 = open("labs/lab08/exercise2/data/list2.txt", "r")
+    
+    names = set()
+    
+    for line in file1:
+        names.add(line.strip())
+    for line in file2:
+        names.add(line.strip())
+    
+    sorted_names = sorted(names)
+    file1.close()
+    file2.close()
+    
+    f = open("labs/lab08/exercise2/data/merged.txt", "w")
+    f.write("\n".join(sorted_names))
+    f.close()
+
+    return len(names)
 
 
-# Test your code here
-result = merge_lists("data/list1.txt", "data/list2.txt", "data/merged.txt")
+result = merge_lists("labs/lab08/exercise2/data/list1.txt", "labs/lab08/exercise2/data/list2.txt", "labs/lab08/exercise2/data/merged.txt")
 print(f"Unique names: {result}")
