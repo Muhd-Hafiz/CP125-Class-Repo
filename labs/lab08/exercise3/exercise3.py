@@ -3,7 +3,7 @@ import csv
 def calculate_order_total(products_file, order_file, output_file):
     prices = {}
     products_file = open("labs/lab08/exercise3/data/products.csv", 'r',newline='')
-    reader = csv.DictReader(products_file)
+    reader = csv.writer(products_file)
 
     for row in reader:
         prices[row['product_id']] = float(row['price'])
@@ -13,7 +13,7 @@ def calculate_order_total(products_file, order_file, output_file):
     grand_total = 0
 
     order_file = open("labs/lab08/exercise3/data/order.csv", 'r',newline='')
-    reader = csv.DictReader(order_file)
+    reader = csv.writer(order_file)
 
     output_file = open("labs/lab08/exercise3/data/total.csv", 'w', newline='')
     writer = csv.writer(output_file)

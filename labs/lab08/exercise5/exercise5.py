@@ -32,8 +32,7 @@ def summarize_sales(input_file, output_file):
     input_file.close()
     
     output_file = open("labs/lab08/exercise5/data/summary.txt", 'w')
-    for row in [('Total', total), ('Average', average), ('Highest', highest), ('Lowest', lowest)]:
-        output_file.write(f"{row[0]}: ${row[1]:.2f}\n")
+    
     output_file.close()
     
     return total, average, highest, lowest
